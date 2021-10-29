@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <math.h>
 
+
 int solution(int n) {
     int answer = 0;
     long i = 1, tmp = 0;
