@@ -3,7 +3,7 @@
 #include <stdlib.h>
 #include <string.h>
 
-/*수정필요*/
+/*미완성*/
 // places_rows는 2차원 배열 places의 행 길이, places_cols는 2차원 배열 places의 열 길이입니다.
 // 파라미터로 주어지는 문자열은 const로 주어집니다. 변경하려면 문자열을 복사해서 사용하세요.
 
