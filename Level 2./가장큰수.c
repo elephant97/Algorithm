@@ -35,6 +35,5 @@ char* solution(int numbers[], size_t numbers_len) {
             sprintf(answer,"%s%d", answer, numbers[i]);
         }
     }
-    
     return answer;
 }
