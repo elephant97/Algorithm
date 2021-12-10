@@ -47,7 +47,6 @@ int solution(const char* skill, const char* skill_trees[], size_t skill_trees_le
         }
     }
     
-    
-    
+       
     return answer;
 }
