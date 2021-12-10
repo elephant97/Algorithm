@@ -21,6 +21,7 @@ int* solution(int prices[], size_t prices_len) {
             }
         }
     }
+    
     answer[prices_len-1] = 0;
     return answer;
 }
