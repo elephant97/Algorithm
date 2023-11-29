@@ -57,11 +57,9 @@ class Solution {
                 if(targetDiffCnt == 1){//한개만 다를 시 바로 변환 가능
                     answer = 1;
                 } 
-
                 return; 
             }
         }
-
         answer = 0;
     }
 }
