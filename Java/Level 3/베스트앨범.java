@@ -19,7 +19,7 @@ class Solution {
         // 장르별 재생 횟수 리스트 생성
         for (String genre : keySet) {
             HashMap<Integer,Integer> genrePlay = new HashMap<>();
-			for(int i = 0; i < plays.length; i++){
+	    for(int i = 0; i < plays.length; i++){
                 if(genres[i].equals(genre)){
                     genrePlay.put(i,plays[i]);
                 }
@@ -32,7 +32,7 @@ class Solution {
             for(int i = 0; (i < 2 && i < sortValue.size()); i++){
                 answerList.add(sortValue.get(i));
             }
-		} 
+	} 
         
         int[] answer = new int[answerList.size()];
         for (int i = 0; i < answerList.size(); i++) {
