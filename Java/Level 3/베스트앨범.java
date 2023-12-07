@@ -30,7 +30,6 @@ class Solution {
             Collections.sort(sortValue,(a, b)-> genrePlay.get(b).compareTo(genrePlay.get(a)));
             // 재생 횟수별 list 선별
             for(int i = 0; (i < 2 && i < sortValue.size()); i++){
-                System.out.println(sortValue.get(i)+" i="+i);
                 answerList.add(sortValue.get(i));
             }
 		} 
