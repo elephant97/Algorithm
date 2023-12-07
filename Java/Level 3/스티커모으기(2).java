@@ -2,10 +2,10 @@ class Solution {
     public int solution(int sticker[]) {
         int n = sticker.length;
 
-        // 예외 처리: 스티커가 하나일 경우
-        if (n == 1) {
-            return sticker[0];
-        }
+        // 예외 처리: 스티커가 3개인 경우 까지일 단순히 max 비교로 값 구할 수 있음
+        if (n == 1) return sticker[0];
+        else if(n == 2) return Math.max(sticker[0], sticker[1]);
+        else if(n == 3) return Math.max(sticker[0], Math.max(sticker[1],sticker[2]));
 
         // 첫 번째 스티커를 뜯는 경우
         int[] dp1 = new int[n];
