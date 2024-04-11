@@ -20,7 +20,6 @@ class Solution1 {
         for(int i = 0; i < orders.length; i++){
             
             int plantIdx = orders[i]-1;
-            // System.out.println("=====[싸이클:"+(i+1)+"]====="+plantIdx);
             
             waitCycle[plantIdx] = i+1;
 
@@ -31,18 +30,15 @@ class Solution1 {
 
                 for(int k = 0; k < target.size(); k++){
                     int idx = target.get(k);
-                    // System.out.println("[plantIdx]=>"+plantIdx);
                     if(waitCycle[idx] == -1) continue;
                     
                     if(j-1 < (i - waitCycle[idx])){
-                        // System.out.println("[@싸이클:"+j+"]"+"idx=>"+idx);
                         target.remove(k);
                         waitCycle[idx] = -1;
                         k--;
                         badCount++;
                     }else if(j-1 == (i - waitCycle[idx])){
                         if(plantIdx != idx){
-                            // System.out.println("[#싸이클:"+j+"]"+"idx=>"+idx+", waitCycle="+waitCycle[idx]);
                             target.remove(k);
                             waitCycle[idx] = -1;
                             k--;
@@ -53,7 +49,6 @@ class Solution1 {
             }
 
             answer[i] = emotionsLength-badCount;
-            // System.out.println(answer[i]);
         }
         
         return answer;
