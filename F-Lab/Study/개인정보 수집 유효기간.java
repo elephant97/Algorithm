@@ -27,7 +27,7 @@ class Solution {
             tempMonth+=addMonth;
             if(tempMonth > 12){
                 tempYears += tempMonth/ 12;
-                tempMonth = tempMonth%12+1;
+                tempMonth = tempMonth%12;
                 if(tempMonth == 0){
                     tempMonth = 12;
                     tempYears--;
