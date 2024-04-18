@@ -27,7 +27,6 @@ class Solution {
             if(overPeek-calc > k){
                 overPeek -= calc;
             }else{
-                if(over.size() == 0) break;
                 if(over.size() < m){
                     answer = count;
                     break;
