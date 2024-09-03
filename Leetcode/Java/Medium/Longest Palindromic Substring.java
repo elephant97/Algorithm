@@ -1,9 +1,13 @@
-public class Solution {
-     public String longestPalindrome(String s) {
+class Solution {
+    int sLength;
+    public String longestPalindrome(String s) {
+        sLength = s.length();
+
         if (s == null || s.length() < 1) return "";
+        
         int start = 0, end = 0;
-        for (int i = 0; i < s.length(); i++) {
-            int len1 = expandAroundCenter(s, i, i);
+        for (int i = 0; i < sLength; i++) {
+            int len1 = expandAroundCenter(s, i, i);      
             int len2 = expandAroundCenter(s, i, i + 1); 
             int len = Math.max(len1, len2);
             if (len > end - start) {
@@ -15,11 +19,12 @@ public class Solution {
     }
 
     private int expandAroundCenter(String s, int left, int right) {
-        while (left >= 0 && right < s.length() && s.charAt(left) == s.charAt(right)) {
-            left--;
-            right++;
+        int L = left, R = right;
+        while (L >= 0 && R < sLength && s.charAt(L) == s.charAt(R)) {
+            L--;
+            R++;
         }
-        return right - left - 1;
+        return R - L - 1;
     }
 
 }
