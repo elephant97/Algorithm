@@ -1,35 +1,30 @@
 class Solution {
-public String convert(String s, int numRows) {
-        StringBuilder answer = new StringBuilder();
+    public String convert(String s, int numRows) {
+        if (numRows == 1 || s.length() <= numRows) return s;
+
         StringBuilder[] rows = new StringBuilder[numRows];
-        boolean reverseFlag = false;
-        int rowPos = 0;
-
-        if(s.length() <= 2 || numRows == 1) return s;
-
-        for(int i = 0; i < s.length(); i++)
-        {
-            if(i < numRows)
-            {
-                rows[i] = new StringBuilder();
-            }
-            
-            rows[rowPos].append(s.charAt(i));
-            
-            if(rowPos == numRows-1) reverseFlag = true;
-            else if (rowPos == 0) reverseFlag = false;
-
-            if(reverseFlag) rowPos--;
-            else    rowPos++;
+        for (int i = 0; i < numRows; i++) {
+            rows[i] = new StringBuilder();
         }
 
-        for(int i = 0; i < numRows; i++)
-        {
-            if(rows[i] != null)
-                answer.append(rows[i]);
+        boolean goingDown = false;
+        int rowPos = 0;
+
+        for (char c : s.toCharArray()) {
+            rows[rowPos].append(c);
+
+            if (rowPos == 0 || rowPos == numRows - 1) {
+                goingDown = !goingDown;
+            }
+
+            rowPos += goingDown ? 1 : -1;
+        }
+
+        StringBuilder answer = new StringBuilder();
+        for (StringBuilder row : rows) {
+            answer.append(row);
         }
 
         return answer.toString();
     }
-
 }
