@@ -14,7 +14,7 @@ class Solution {
                 int j = stack.pop();
                 max = Math.max(i - j, max);
             }
-        }
+        } 
 
         return max;
     }
