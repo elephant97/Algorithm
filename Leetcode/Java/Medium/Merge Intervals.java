@@ -1,22 +1,26 @@
 class Solution {
-    public int[][] merge(int[][] intervals) {
-        List<int[]> mergeArray = new ArrayList<>();
-        int x = 0;
+    public int[][] insert(int[][] intervals, int[] newInterval) {
+        List<int[]> answerBucket = new ArrayList<>();
+        int i = 0;
+        int n = intervals.length;
 
-        Arrays.sort(intervals, (a, b) -> a[0]-b[0]);
-        mergeArray.add(new int[]{intervals[0][0], intervals[0][1]});
-
-        for(int i = 1; i < intervals.length; i++){
-            int[] temp = mergeArray.get(x);
-            if(temp[1] >= intervals[i][0]){
-                if(intervals[i][1] < temp[1]) continue;
-                mergeArray.set(x, new int[]{temp[0], intervals[i][1]});
-            }else{
-                mergeArray.add(new int[]{intervals[i][0], intervals[i][1]}); 
-                x++;   
-            }
+        while (i < n && intervals[i][1] < newInterval[0]) {
+            answerBucket.add(intervals[i]);
+            i++;
         }
 
-        return mergeArray.stream().toArray(int[][]::new);
+        while (i < n && intervals[i][0] <= newInterval[1]) {
+            newInterval[0] = Math.min(newInterval[0], intervals[i][0]);
+            newInterval[1] = Math.max(newInterval[1], intervals[i][1]);
+            i++;
+        }
+        answerBucket.add(newInterval);
+
+        while (i < n) {
+            answerBucket.add(intervals[i]);
+            i++;
+        }
+
+        return answerBucket.toArray(new int[answerBucket.size()][]);
     }
 }
